@@ -20,7 +20,7 @@
     "outDir": "build",
     "baseUrl": "./src",
     "paths": {
-      "~/*": ["types/*", "datasources/*", "resolvers/*", "schemas/*"]
+      "~/*": ["types/*", "datasources/*", "resolvers/*", "schemas/*", "utils/*"]
     }
   },
   "typeAcquisition": { "enable": true },
