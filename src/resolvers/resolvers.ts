@@ -6,5 +6,8 @@ export default {
     presidents(obj: any, args: any, context: any) {
       return context.dataSources.president.presidents();
     },
+    cep(obj: any, { cep }: any, context: any) {
+      return context.dataSources.cep.getCep(cep);
+    },
   },
 };
