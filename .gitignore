@@ -1,0 +1,5 @@
+package-lock.json
+.env
+build/
+node_modules/
+cache/
