@@ -1,8 +1,7 @@
 import { ApolloServer, Request } from 'apollo-server';
 import typeDefs from './schemas/schema';
 import resolvers from './resolvers/resolvers';
-import Country from './datasources/Country';
-import President from './datasources/President';
+import dataSources from './datasources';
 
 const server = new ApolloServer({
   typeDefs,
@@ -11,10 +10,7 @@ const server = new ApolloServer({
     return { request: { authorized: false } };
   },
   tracing: true,
-  dataSources: () => ({
-    country: new Country(),
-    president: new President(),
-  }),
+  dataSources: () => dataSources,
   cacheControl: true,
 });
 
