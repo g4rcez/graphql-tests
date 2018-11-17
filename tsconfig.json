@@ -1,6 +1,16 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "removeComments": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": false,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react",
+    "newLine": "LF",
+    "pretty": true,
+    "resolveJsonModule": true,
+    "allowJs": false,
     "esModuleInterop": true,
     "target": "es2015",
     "lib": ["es6", "es2018", "es7", "dom", "esnext"],
@@ -13,5 +23,6 @@
       "~/*": ["types/*", "datasources/*", "resolvers/*", "schemas/*"]
     }
   },
+  "typeAcquisition": { "enable": true },
   "include": ["src/**/*"]
 }
