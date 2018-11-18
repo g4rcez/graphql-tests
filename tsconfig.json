@@ -20,6 +20,7 @@
     "outDir": "build",
     "baseUrl": "./src",
     "paths": {
+      "*": ["types/*"],
       "~/*": ["types/*", "datasources/*", "resolvers/*", "schemas/*", "utils/*"]
     }
   },
