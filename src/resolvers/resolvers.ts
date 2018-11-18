@@ -9,5 +9,8 @@ export default {
     cep(obj: any, { cep }: any, context: any) {
       return context.dataSources.cep.getCep(cep);
     },
+    plate(obj: any, { plate }: any, context: any) {
+      return context.dataSources.plate.getPlate(plate);
+    },
   },
 };
