@@ -1,0 +1,5 @@
+type Comment {
+  id: Int
+  body: String
+  postId: Int
+}

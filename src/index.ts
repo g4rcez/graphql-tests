@@ -1,19 +1,15 @@
-import { ApolloServer, Request } from 'apollo-server';
-import typeDefs from './schemas/schema';
-import resolvers from './resolvers/resolvers';
-import dataSources from './datasources';
+import { ApolloServer, gql } from "apollo-server";
+import dataSources from "./data-sources";
+import { importAllSchemas } from "./helpers/import-all-schemas";
+import resolvers from "./resolvers";
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: async (request: Request) => {
-    return { request: { authorized: false } };
-  },
-  tracing: true,
-  dataSources: () => dataSources,
-  cacheControl: true,
-});
-
-server.listen().then(({ url }) => {
-  console.log(`Running at: ${url}`);
+importAllSchemas("./schemas/**/*.+(gql|graphql)").then((typeDefs) => {
+  const server = new ApolloServer({
+    typeDefs: gql(typeDefs),
+    resolvers,
+    dataSources,
+  });
+  server.listen().then(({ url }) => {
+    console.log(`🚀 Server ready at ${url}`);
+  });
 });

@@ -1,29 +1,24 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "removeComments": true,
-    "declaration": true,
-    "downlevelIteration": true,
-    "experimentalDecorators": false,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "newLine": "LF",
-    "pretty": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "target": "ES2016",
     "resolveJsonModule": true,
-    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "target": "es2015",
-    "lib": ["es6", "es2018", "es7", "dom", "esnext"],
-    "noImplicitAny": true,
     "moduleResolution": "node",
+    "module": "commonjs",
     "sourceMap": true,
-    "outDir": "build",
-    "baseUrl": "./src",
-    "paths": {
-      "*": ["types/*"],
-      "~/*": ["types/*", "datasources/*", "resolvers/*", "schemas/*", "utils/*"]
-    }
+    "rootDir": "./src",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "lib": [
+      "esnext"
+    ]
   },
-  "typeAcquisition": { "enable": true },
-  "include": ["src/**/*"]
+  "exclude": [
+    "./config",
+    "./scripts"
+  ]
 }

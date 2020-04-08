@@ -1,0 +1,26 @@
+[
+  {
+    "method": "get",
+    "filename": "post",
+    "endpoint": "http://localhost:3000/posts/1",
+    "folder": "",
+    "body": {},
+    "headers": {}
+  },
+  {
+    "method": "get",
+    "filename": "comment",
+    "endpoint": "http://localhost:3000/comments/1",
+    "folder": "",
+    "body": {},
+    "headers": {}
+  },
+  {
+    "method": "get",
+    "filename": "profile",
+    "endpoint": "http://localhost:3000/profile",
+    "folder": "",
+    "body": {},
+    "headers": {}
+  }
+]
