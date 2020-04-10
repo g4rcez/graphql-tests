@@ -1,3 +1,5 @@
 type Query {
   posts: [Post]
+  comments: [Comment]
+  comment(id: ID): Comment
 }
