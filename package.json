@@ -1,34 +1,62 @@
 {
-  "name": "gql-tsc",
-  "scripts": {
-    "start": "dotenv -- nodemon -e ts,graphql,gql -x ts-node src/index.ts",
-    "debug": "dotenv -- nodemon -e ts,graphql,gql -x ts-node --inspect src/index.ts",
-    "types": "ts-node scripts/generate-types",
-    "schemas": "ts-node scripts/get-schemas",
-    "dev": "npm-run-all -p types schemas",
-    "build": "rimraf dist && tsc"
-  },
-  "dependencies": {
-    "apollo-datasource-rest": "^0.8.1",
-    "apollo-server": "^2.11.0",
-    "bcryptjs": "2.4.3",
-    "glob": "^7.1.6",
-    "jsonwebtoken": "8.5.1"
-  },
-  "devDependencies": {
-    "@graphql-codegen/cli": "^1.13.2",
-    "@graphql-codegen/typescript": "^1.13.2",
-    "@types/bcryptjs": "2.4.2",
-    "@types/glob": "^7.1.1",
-    "@types/node": "10.17.18",
-    "@walmartlabs/json-to-simple-graphql-schema": "^2.0.0",
-    "dotenv-cli": "1.4.0",
-    "hermes-http": "^1.5.0",
-    "nodemon": "1.19.4",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.4",
-    "rimraf": "2.7.1",
-    "ts-node": "^8.8.2",
-    "typescript": "3.2.2"
-  }
+    "name": "gql-tsc",
+    "scripts": {
+        "api": "json-server --watch api/db.json",
+        "apollo:client": "apollo service:push --tag=master",
+        "build": "rimraf dist && tsc",
+        "configure": "npm-run-all -p types schemas",
+        "debug": "dotenv -- nodemon -e ts,graphql,gql -x ts-node --inspect src/index.ts",
+        "dev": "cross-env NODE_ENV=development dotenv -- nodemon -e ts,graphql,gql -x ts-node src/index.ts",
+        "env": "cp env.example .env.development",
+        "eslint": "eslint . --ext .ts",
+        "prettier": "prettier --config .prettierrc --write \"{.,src/**}/*.{js,jsx,ts,tsx}\"",
+        "schemas": "ts-node scripts/get-schemas",
+        "serve": "cross-env NODE_ENV=production node dist/index.js",
+        "start": "npm-run-all -p api dev",
+        "test": "cross-env NODE_ENV=test jest",
+        "tests": "cross-env NODE_ENV=test jest",
+        "types": "ts-node scripts/generate-types"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "dependencies": {
+        "apollo-datasource-rest": "^0.8.1",
+        "apollo-server": "^2.12.0",
+        "cross-env": "^7.0.2",
+        "glob": "^7.1.6"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "@babel/preset-typescript": "^7.9.0",
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@graphql-codegen/cli": "^1.13.2",
+        "@graphql-codegen/typescript": "^1.13.2",
+        "@types/glob": "^7.1.1",
+        "@types/jest": "^25.2.1",
+        "@types/node": "^13.11.1",
+        "@typescript-eslint/eslint-plugin": "^2.27.0",
+        "@typescript-eslint/parser": "^2.27.0",
+        "@walmartlabs/json-to-simple-graphql-schema": "^2.0.0",
+        "apollo": "^2.27.0",
+        "babel-jest": "^25.3.0",
+        "dotenv-cli": "^3.1.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-prettier": "^3.1.2",
+        "hermes-http": "^1.5.0",
+        "husky": "^4.2.5",
+        "jest": "^25.3.0",
+        "json-server": "^0.16.1",
+        "nodemon": "^2.0.3",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.0.4",
+        "rimraf": "^3.0.2",
+        "ts-node": "^8.8.2",
+        "typescript": "^3.8.3"
+    }
 }
