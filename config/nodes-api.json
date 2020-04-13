@@ -2,7 +2,7 @@
   {
     "method": "get",
     "filename": "post",
-    "endpoint": "http://localhost:3000/posts/1",
+    "endpoint": "http://localhost:3000/posts",
     "folder": "",
     "body": {},
     "headers": {}
