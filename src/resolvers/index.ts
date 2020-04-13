@@ -1,13 +1,17 @@
-import { postResolver, onePostResolver } from "./post.resolver";
-import { commentResolver, oneCommentResolver } from "./comment.resolver";
+import { queryPosts, queryOnePost } from "./query/post.query";
+import { queryComments, queryOneComment } from "./query/comment.query";
+import { mutationPing } from "./mutation/ping.mutation";
 
 const resolvers: any = {
-  Query: {
-    posts: postResolver,
-    comments: commentResolver,
-    comment: oneCommentResolver,
-  },
-  Post: onePostResolver,
+    Query: {
+        posts: queryPosts,
+        comments: queryComments,
+        comment: queryOneComment
+    },
+    Post: queryOnePost,
+    Mutation: {
+        ping: mutationPing
+    }
 };
 
 export default resolvers;
