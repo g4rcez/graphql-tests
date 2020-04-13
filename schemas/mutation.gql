@@ -1,0 +1,8 @@
+type MS {
+  ms: Int
+  name: ID
+}
+
+type Mutation {
+  ping(ms: Int): MS!
+}
