@@ -1,24 +1,38 @@
 {
-  "compilerOptions": {
-    "strict": true,
-    "alwaysStrict": true,
-    "target": "ES2016",
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "module": "commonjs",
-    "sourceMap": true,
-    "rootDir": "./src",
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-    "outDir": "dist",
-    "lib": [
-      "esnext"
+    "compilerOptions": {
+        "strict": true,
+        "experimentalDecorators": true,
+        "stripInternal": true,
+        "strictNullChecks": true,
+        "downlevelIteration": true,
+        "alwaysStrict": true,
+        "target": "ES2016",
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "sourceMap": true,
+        "rootDirs": [
+            "./src",
+            "./scripts",
+            "./tests"
+        ],
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "outDir": "dist",
+        "lib": [
+            "ES2017",
+            "ES2018",
+            "ES2019",
+            "ES7",
+            "esnext"
+        ]
+    },
+    "exclude": [
+        "./dist",
+        "./tests",
+        "./config",
+        "./scripts"
     ]
-  },
-  "exclude": [
-    "./config",
-    "./scripts"
-  ]
 }
