@@ -1,19 +1,20 @@
-const { generate } = require("@graphql-codegen/cli");
-const { join } = require("path");
+import { generate } from "@graphql-codegen/cli";
+import { writeFileSync } from "fs";
+import { join } from "path";
 
-async function doSomething() {
-  await generate(
-    {
-      schema: "http://localhost:4000",
-      silent: true,
-      generates: {
-        [join("..", process.cwd(), "/global.d.ts")]: {
-          plugins: ["typescript"],
-        },
-      },
-    },
-    true
-  );
+async function doSomething(): Promise<void> {
+    const saveFile = join(process.cwd(), "src", "/schemas.d.ts");
+    const [schema] = await generate({
+        schema: "http://localhost:5000",
+        silent: true,
+        generates: {
+            [saveFile]: {
+                plugins: ["typescript"]
+            }
+        }
+    });
+    const data = schema.content;
+    writeFileSync(saveFile, data);
 }
 
 doSomething();
